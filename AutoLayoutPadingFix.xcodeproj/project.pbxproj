@@ -15,7 +15,7 @@
 		017A083B1E078560005A800D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017A08391E078560005A800D /* LaunchScreen.storyboard */; };
 		017A08461E078560005A800D /* AutoLayoutPadingFixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 017A08451E078560005A800D /* AutoLayoutPadingFixTests.m */; };
 		017A08511E078560005A800D /* AutoLayoutPadingFixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 017A08501E078560005A800D /* AutoLayoutPadingFixUITests.m */; };
-		017A08601E078BA8005A800D /* KNAutoLayoutPadingFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 017A085F1E078BA8005A800D /* KNAutoLayoutPadingFix.m */; };
+		017A08601E078BA8005A800D /* KNAutoLayoutPaddingFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 017A085F1E078BA8005A800D /* KNAutoLayoutPaddingFix.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		017A084C1E078560005A800D /* AutoLayoutPadingFixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutPadingFixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		017A08501E078560005A800D /* AutoLayoutPadingFixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutPadingFixUITests.m; sourceTree = "<group>"; };
 		017A08521E078560005A800D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		017A085E1E078BA8005A800D /* KNAutoLayoutPadingFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAutoLayoutPadingFix.h; sourceTree = "<group>"; };
-		017A085F1E078BA8005A800D /* KNAutoLayoutPadingFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAutoLayoutPadingFix.m; sourceTree = "<group>"; };
+		017A085E1E078BA8005A800D /* KNAutoLayoutPaddingFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAutoLayoutPaddingFix.h; sourceTree = "<group>"; };
+		017A085F1E078BA8005A800D /* KNAutoLayoutPaddingFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAutoLayoutPaddingFix.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +108,8 @@
 				017A082F1E078560005A800D /* AppDelegate.m */,
 				017A08311E078560005A800D /* ViewController.h */,
 				017A08321E078560005A800D /* ViewController.m */,
-				017A085E1E078BA8005A800D /* KNAutoLayoutPadingFix.h */,
-				017A085F1E078BA8005A800D /* KNAutoLayoutPadingFix.m */,
+				017A085E1E078BA8005A800D /* KNAutoLayoutPaddingFix.h */,
+				017A085F1E078BA8005A800D /* KNAutoLayoutPaddingFix.m */,
 				017A08341E078560005A800D /* Main.storyboard */,
 				017A08371E078560005A800D /* Assets.xcassets */,
 				017A08391E078560005A800D /* LaunchScreen.storyboard */,
@@ -278,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				017A08601E078BA8005A800D /* KNAutoLayoutPadingFix.m in Sources */,
+				017A08601E078BA8005A800D /* KNAutoLayoutPaddingFix.m in Sources */,
 				017A08331E078560005A800D /* ViewController.m in Sources */,
 				017A08301E078560005A800D /* AppDelegate.m in Sources */,
 				017A082D1E078560005A800D /* main.m in Sources */,

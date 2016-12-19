@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "KNAutoLayoutPadingFix.h"
+#import "KNAutoLayoutPaddingFix.h"
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [KNAutoLayoutPadingFix fixViews:@[self.label2] axis:KNAutoLayoutPadingFixAxisHorizontal | KNAutoLayoutPadingFixAxisVertical];
+        [KNAutoLayoutPadingFix fixViews:@[self.label2] axis:KNAutoLayoutPaddingFixAxisHorizontal | KNAutoLayoutPaddingFixAxisVertical];
         self.label2HeightConstraint.constant = 0;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [KNAutoLayoutPadingFix restoreViews:@[self.label2]];

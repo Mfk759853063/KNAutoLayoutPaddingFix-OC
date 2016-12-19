@@ -9,13 +9,13 @@
 #import "KNAutoLayoutPadingFix.h"
 #import "objc/runtime.h"
 
-@interface UIView (KNAutoLayoutPadingFix)
+@interface UIView (KNAutoLayoutPaddingFix)
 
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *restoreConstaints;
 
 @end
 
-@implementation UIView (KNAutoLayoutPadingFix)
+@implementation UIView (KNAutoLayoutPaddingFix)
 
 - (NSMutableArray<NSDictionary *> *)restoreConstaints {
     return objc_getAssociatedObject(self, @selector(restoreConstaints));
@@ -28,24 +28,24 @@
 
 @end
 
-@implementation KNAutoLayoutPadingFix
+@implementation KNAutoLayoutPaddingFix
 
 static const NSString *KNCONSTAINTKEY = @"constaint";
 static const NSString *KNCONSTANTKEY = @"constant";
 
-+ (void)fixViews:(NSArray<UIView *> *)views axis:(KNAutoLayoutPadingFixAxis)axis {
++ (void)fixViews:(NSArray<UIView *> *)views axis:(KNAutoLayoutPaddingFixAxis)axis {
     [views enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self fixView:obj axis:axis];
     }];
 }
 
-+ (void)fixView:(UIView *)view axis:(KNAutoLayoutPadingFixAxis)axis {
++ (void)fixView:(UIView *)view axis:(KNAutoLayoutPaddingFixAxis)axis {
     if (!view.restoreConstaints) {
         view.restoreConstaints = @[].mutableCopy;
     }
     [view.restoreConstaints removeAllObjects];
     
-    if (axis & KNAutoLayoutPadingFixAxisVertical) {
+    if (axis & KNAutoLayoutPaddingFixAxisVertical) {
         NSLayoutConstraint *topConstraint = [self findTopConstraintWithView:view];
         if (topConstraint) {
             NSDictionary *parms = @{KNCONSTAINTKEY:topConstraint,KNCONSTANTKEY:@(topConstraint.constant)};
@@ -53,7 +53,7 @@ static const NSString *KNCONSTANTKEY = @"constant";
             topConstraint.constant = 0;
         }
     }
-    if (axis & KNAutoLayoutPadingFixAxisHorizontal) {
+    if (axis & KNAutoLayoutPaddingFixAxisHorizontal) {
         NSLayoutConstraint *leftConstraint = [self findLeftConstraintWithView:view];
         if (leftConstraint) {
             NSDictionary *parms = @{KNCONSTAINTKEY:leftConstraint,KNCONSTANTKEY:@(leftConstraint.constant)};

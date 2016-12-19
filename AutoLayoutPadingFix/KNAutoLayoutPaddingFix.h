@@ -12,16 +12,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef NS_OPTIONS (NSInteger, KNAutoLayoutPadingFixAxis) {
-    KNAutoLayoutPadingFixAxisHorizontal = 1 << 0,
-    KNAutoLayoutPadingFixAxisVertical = 1 << 1,
+typedef NS_OPTIONS (NSInteger, KNAutoLayoutPaddingFixAxis) {
+    KNAutoLayoutPaddingFixAxisHorizontal = 1 << 0,
+    KNAutoLayoutPaddingFixAxisVertical = 1 << 1,
 };
 
-@interface KNAutoLayoutPadingFix : NSObject
+@interface KNAutoLayoutPaddingFix : NSObject
 
-+ (void)fixViews:(NSArray<UIView *> *)views axis:(KNAutoLayoutPadingFixAxis)axis;
++ (void)fixViews:(NSArray<UIView *> *)views axis:(KNAutoLayoutPaddingFixAxis)axis;
 
-+ (void)fixView:(UIView *)view axis:(KNAutoLayoutPadingFixAxis)axis;
++ (void)fixView:(UIView *)view axis:(KNAutoLayoutPaddingFixAxis)axis;
 
 + (void)restoreViews:(NSArray<UIView *> *)views;
 
