@@ -13,8 +13,10 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS (NSInteger, KNAutoLayoutPaddingFixAxis) {
-    KNAutoLayoutPaddingFixAxisHorizontal = 1 << 0,
-    KNAutoLayoutPaddingFixAxisVertical = 1 << 1,
+    KNAutoLayoutPaddingFixAxisLeft = 1 << 0,
+    KNAutoLayoutPaddingFixAxisRight = 1 << 1,
+    KNAutoLayoutPaddingFixAxisTop = 1 << 2,
+    KNAutoLayoutPaddingFixAxisBottom = 1 << 3,
 };
 
 @interface KNAutoLayoutPaddingFix : NSObject

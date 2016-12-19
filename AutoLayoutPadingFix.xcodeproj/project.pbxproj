@@ -108,8 +108,7 @@
 				017A082F1E078560005A800D /* AppDelegate.m */,
 				017A08311E078560005A800D /* ViewController.h */,
 				017A08321E078560005A800D /* ViewController.m */,
-				017A085E1E078BA8005A800D /* KNAutoLayoutPaddingFix.h */,
-				017A085F1E078BA8005A800D /* KNAutoLayoutPaddingFix.m */,
+				01D6C99B1E08053B0012C879 /* KNAutoLayoutPadding */,
 				017A08341E078560005A800D /* Main.storyboard */,
 				017A08371E078560005A800D /* Assets.xcassets */,
 				017A08391E078560005A800D /* LaunchScreen.storyboard */,
@@ -143,6 +142,15 @@
 				017A08521E078560005A800D /* Info.plist */,
 			);
 			path = AutoLayoutPadingFixUITests;
+			sourceTree = "<group>";
+		};
+		01D6C99B1E08053B0012C879 /* KNAutoLayoutPadding */ = {
+			isa = PBXGroup;
+			children = (
+				017A085E1E078BA8005A800D /* KNAutoLayoutPaddingFix.h */,
+				017A085F1E078BA8005A800D /* KNAutoLayoutPaddingFix.m */,
+			);
+			name = KNAutoLayoutPadding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

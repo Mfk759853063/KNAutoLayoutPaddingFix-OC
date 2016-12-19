@@ -6,7 +6,7 @@
 //  Copyright © 2016年 vbn. All rights reserved.
 //
 
-#import "KNAutoLayoutPadingFix.h"
+#import "KNAutoLayoutPaddingFix.h"
 #import "objc/runtime.h"
 
 @interface UIView (KNAutoLayoutPaddingFix)
@@ -45,22 +45,38 @@ static const NSString *KNCONSTANTKEY = @"constant";
     }
     [view.restoreConstaints removeAllObjects];
     
-    if (axis & KNAutoLayoutPaddingFixAxisVertical) {
+    if (axis & KNAutoLayoutPaddingFixAxisTop) {
         NSLayoutConstraint *topConstraint = [self findTopConstraintWithView:view];
         if (topConstraint) {
-            NSDictionary *parms = @{KNCONSTAINTKEY:topConstraint,KNCONSTANTKEY:@(topConstraint.constant)};
-            [view.restoreConstaints addObject:parms];
-            topConstraint.constant = 0;
+            [self setView:view constant:0 constraint:topConstraint];
         }
     }
-    if (axis & KNAutoLayoutPaddingFixAxisHorizontal) {
+    if (axis & KNAutoLayoutPaddingFixAxisLeft) {
         NSLayoutConstraint *leftConstraint = [self findLeftConstraintWithView:view];
         if (leftConstraint) {
-            NSDictionary *parms = @{KNCONSTAINTKEY:leftConstraint,KNCONSTANTKEY:@(leftConstraint.constant)};
-            [view.restoreConstaints addObject:parms];
-            leftConstraint.constant = 0;
+            [self setView:view constant:0 constraint:leftConstraint];
         }
     }
+    
+    if (axis & KNAutoLayoutPaddingFixAxisRight) {
+        NSLayoutConstraint *rightConstraint = [self findRightConstraintWithView:view];
+        if (rightConstraint) {
+            [self setView:view constant:0 constraint:rightConstraint];
+        }
+    }
+    
+    if (axis & KNAutoLayoutPaddingFixAxisBottom) {
+        NSLayoutConstraint *bottomConstraint = [self findBottomConstraintWithView:view];
+        if (bottomConstraint) {
+            [self setView:view constant:0 constraint:bottomConstraint];
+        }
+    }
+}
+
++ (void)setView:(UIView *)view constant:(CGFloat)constant constraint:(NSLayoutConstraint *)constraint {
+    NSDictionary *parms = @{KNCONSTAINTKEY:constraint,KNCONSTANTKEY:@(constraint.constant)};
+    [view.restoreConstaints addObject:parms];
+    constraint.constant = constant;
 }
 
 + (void)restoreViews:(NSArray<UIView *> *)views {
@@ -82,11 +98,10 @@ static const NSString *KNCONSTANTKEY = @"constant";
 
 #pragma mark - find Constraint
 
-+ (NSLayoutConstraint *)findTopConstraintWithView:(UIView *)view {
-    
++ (NSLayoutConstraint *)findView:(UIView *)view constraintAttribute:(NSLayoutAttribute)attribute {
     for (NSLayoutConstraint *constraint in view.superview.constraints) {
-        if ((constraint.firstItem == view && constraint.firstAttribute == NSLayoutAttributeTop) ||
-            (constraint.secondItem == view && constraint.secondAttribute == NSLayoutAttributeTop)) {
+        if ((constraint.firstItem == view && constraint.firstAttribute == attribute) ||
+            (constraint.secondItem == view && constraint.secondAttribute == attribute)) {
             return constraint;
             break;
         }
@@ -94,16 +109,21 @@ static const NSString *KNCONSTANTKEY = @"constant";
     return nil;
 }
 
-+ (NSLayoutConstraint *)findLeftConstraintWithView:(UIView *)view {
++ (NSLayoutConstraint *)findTopConstraintWithView:(UIView *)view {
     
-    for (NSLayoutConstraint *constraint in view.superview.constraints) {
-        if ((constraint.firstItem == view && constraint.firstAttribute == NSLayoutAttributeLeading) ||
-            (constraint.secondItem == view && constraint.secondAttribute == NSLayoutAttributeLeading)) {
-            return constraint;
-            break;
-        }
-    }
-    return nil;
+    return [self findView:view constraintAttribute:NSLayoutAttributeTop];
+}
+
++ (NSLayoutConstraint *)findLeftConstraintWithView:(UIView *)view {
+    return [self findView:view constraintAttribute:NSLayoutAttributeLeading];
+}
+
++ (NSLayoutConstraint *)findRightConstraintWithView:(UIView *)view {
+    return [self findView:view constraintAttribute:NSLayoutAttributeTrailing];
+}
+
++ (NSLayoutConstraint *)findBottomConstraintWithView:(UIView *)view {
+    return [self findView:view constraintAttribute:NSLayoutAttributeBottom];
 }
 
 @end
