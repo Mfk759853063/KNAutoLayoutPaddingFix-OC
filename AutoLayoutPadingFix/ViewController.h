@@ -10,6 +10,13 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *label2HeightConstraint;
+
+@property (weak, nonatomic) IBOutlet UILabel *label3;
 
 @end
 
