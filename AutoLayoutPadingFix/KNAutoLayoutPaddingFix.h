@@ -17,6 +17,8 @@ typedef NS_OPTIONS (NSInteger, KNAutoLayoutPaddingFixAxis) {
     KNAutoLayoutPaddingFixAxisRight = 1 << 1,
     KNAutoLayoutPaddingFixAxisTop = 1 << 2,
     KNAutoLayoutPaddingFixAxisBottom = 1 << 3,
+    KNAutoLayoutPaddingFixAxisWidth = 1<<4,
+    KNAutoLayoutPaddingFixAxisHeight = 1<<5
 };
 
 @interface KNAutoLayoutPaddingFix : NSObject

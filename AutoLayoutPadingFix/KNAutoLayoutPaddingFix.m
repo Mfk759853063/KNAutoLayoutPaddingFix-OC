@@ -71,6 +71,18 @@ static const NSString *KNCONSTANTKEY = @"constant";
             [self setView:view constant:0 constraint:bottomConstraint];
         }
     }
+    if (axis & KNAutoLayoutPaddingFixAxisWidth) {
+        NSLayoutConstraint *widthConstraint = [self findWidthConstraintWithView:view];
+        if (widthConstraint) {
+            [self setView:view constant:0 constraint:widthConstraint];
+        }
+    }
+    if (axis & KNAutoLayoutPaddingFixAxisHeight) {
+        NSLayoutConstraint *heightConstraint = [self findHeightConstraintWithView:view];
+        if (heightConstraint) {
+            [self setView:view constant:0 constraint:heightConstraint];
+        }
+    }
 }
 
 + (void)setView:(UIView *)view constant:(CGFloat)constant constraint:(NSLayoutConstraint *)constraint {
@@ -106,6 +118,18 @@ static const NSString *KNCONSTANTKEY = @"constant";
             break;
         }
     }
+    return [self findView:view selfConstraintAttribute:attribute];
+    return nil;
+}
+
++ (NSLayoutConstraint *)findView:(UIView *)view selfConstraintAttribute:(NSLayoutAttribute)attribute {
+    for (NSLayoutConstraint *constraint in view.constraints) {
+        if ((constraint.firstItem == view && constraint.firstAttribute == attribute) ||
+            (constraint.secondItem == view && constraint.secondAttribute == attribute)) {
+            return constraint;
+            break;
+        }
+    }
     return nil;
 }
 
@@ -124,6 +148,14 @@ static const NSString *KNCONSTANTKEY = @"constant";
 
 + (NSLayoutConstraint *)findBottomConstraintWithView:(UIView *)view {
     return [self findView:view constraintAttribute:NSLayoutAttributeBottom];
+}
+
++ (NSLayoutConstraint *)findWidthConstraintWithView:(UIView *)view {
+    return [self findView:view constraintAttribute:NSLayoutAttributeWidth];
+}
+
++ (NSLayoutConstraint *)findHeightConstraintWithView:(UIView *)view {
+    return [self findView:view constraintAttribute:NSLayoutAttributeHeight];
 }
 
 @end
